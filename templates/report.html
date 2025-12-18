@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="page-title text-center">Utilization Dashboard</h2>
+
+<!-- FILTER FORM -->
+<div class="card dark-card mb-4">
+    <form method="get" class="row g-3 align-items-end">
+        <div class="col-md-4">
+            <label class="form-label text-white">Start Date</label>
+            <input type="date" name="start_date" class="form-control" value="{{ start_date }}">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label text-white">End Date</label>
+            <input type="date" name="end_date" class="form-control" value="{{ end_date }}">
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary w-100">Filter Report</button>
+        </div>
+    </form>
+</div>
+
+{% if data %}
+<div class="report-grid fade-in">
+    {% for item in data %}
+    <div class="report-card">
+        <div class="report-title">{{ item.resource.name }} <span class="badge bg-dark ms-1">{{ item.resource.type
+                }}</span></div>
+
+        <div class="d-flex justify-content-between w-100 mt-2">
+            <div>
+                <div class="report-hours">{{ item.hours }} <span style="font-size: 1rem; color: #94a3b8;">hrs</span>
+                </div>
+                <div class="report-label">Utilized {% if start_date %}(in range){% endif %}</div>
+            </div>
+            <div class="text-end">
+                <div class="report-hours text-info" style="-webkit-text-fill-color: initial; color: #38bdf8;">{{
+                    item.upcoming }}</div>
+                <div class="report-label">Upcoming</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="text-center mt-5 fade-in">
+    <p class="text-muted">No resources found.</p>
+</div>
+{% endif %}
+
+{% endblock %}

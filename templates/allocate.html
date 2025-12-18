@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2 class="page-title">Allocate Resource</h2>
+
+<div class="card dark-card col-md-6 mx-auto">
+    <form method="post" class="p-4">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            {{ form.event_id.label(class="form-label text-white") }}
+            {{ form.event_id(class="form-select") }}
+        </div>
+
+        <div class="mb-4">
+            {{ form.resource_id.label(class="form-label text-white") }}
+            {{ form.resource_id(class="form-select") }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary w-100") }}
+    </form>
+</div>
+{% endblock %}

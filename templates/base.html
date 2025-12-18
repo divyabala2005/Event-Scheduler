@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Scheduler</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dark-bg">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark nav-glass fixed-top px-4">
+  <a class="navbar-brand fw-bold" href="/events">Event Scheduler</a>
+
+  <div class="ms-auto">
+    <a href="/events" class="nav-btn">Events</a>
+    <a href="/resources" class="nav-btn">Resources</a>
+    <a href="/allocate" class="nav-btn">Allocate</a>
+    <a href="/report" class="nav-btn">Report</a>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+  {% for msg in get_flashed_messages() %}
+    <div class="alert alert-warning fade-in">{{ msg }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

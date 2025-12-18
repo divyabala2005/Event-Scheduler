@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="page-title">Resources</h2>
+
+<div class="card dark-card">
+  <form method="post" class="row g-3">
+    {{ form.hidden_tag() }}
+
+    <div class="col-md-4">
+      {{ form.name(class="form-control", placeholder="Resource Name (e.g., Projector 1)") }}
+    </div>
+
+    <div class="col-md-4">
+      {{ form.type(class="form-select") }}
+    </div>
+
+    <div class="col-md-4">
+      {{ form.submit(class="btn btn-success w-100") }}
+    </div>
+  </form>
+</div>
+
+<ul class="list-group mt-4">
+  {% for r in resources %}
+  <li class="list-group-item dark-list fade-in d-flex justify-content-between align-items-center">
+    <div>
+      {{ r.name }} <span class="badge bg-secondary ms-2">{{ r.type }}</span>
+    </div>
+    <a href="/edit_resource/{{ r.id }}" class="btn btn-sm btn-outline-info rounded-pill px-3">Edit</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
