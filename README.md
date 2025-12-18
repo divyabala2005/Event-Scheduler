@@ -2,6 +2,10 @@
 
 A modern, full-stack Flask application designed to streamline the scheduling of events and allocation of resources (Rooms, Equipment, Instructors). The system features a robust conflict detection engine, an interactive dashboard, and a premium dark-themed UI.
 
+
+## 🎥 Demo Video
+[Watch the Event Scheduler Demo](https://drive.google.com/file/d/1Uox46t6Icavw7uTlUkqunJdL2rx2V7jI/view?usp=sharing)
+
 ## 🚀 Features
 
 ### Core Functionality
